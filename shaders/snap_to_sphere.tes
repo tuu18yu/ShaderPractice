@@ -1,0 +1,38 @@
+layout(triangles, equal_spacing, ccw) in;
+
+// Uniforms
+uniform mat4 view;
+uniform mat4 proj;
+uniform float animationSeconds;
+uniform bool isMoon;
+
+// Inputs:
+in vec4 pos_es_in[]; // array of 3 3D patch corner positions
+
+// Outputs:
+out vec4 pos_fs_in; // projected, view, and model transformed 3D position (clip-space position)
+out vec4 view_pos_fs_in; // view and model transformed 3D position (view-space position)
+out vec3 normal_fs_in; // view and model transformed 3D normal (view-space normal)
+out vec3 sphere_fs_in; // 3D position _before_ applying model, view or projection transformations (e.g., point on unit sphere or untransformed position on sphere)
+
+void main()
+{
+  // take each point of original triangle and get interpolated value on the original triangle, and normalize to unit vector
+  vec3 snapped = normalize(interpolate(gl_TessCoord, pos_es_in[0].xyz, pos_es_in[1].xyz, pos_es_in[2].xyz));
+  vec4 interpolatedPoint = vec4(snapped, 1.0);
+
+  mat4 m = model(isMoon, animationSeconds);
+  mat4 modelView = view * m;
+  mat4 projectedModelView = proj * modelView;
+
+  // transform all the subdivided points from control shader, by interpolating using TessCoord
+  pos_fs_in = projectedModelView * interpolatedPoint;
+  view_pos_fs_in = modelView * interpolatedPoint;
+  normal_fs_in = normalize((modelView * vec4(snapped, 0.0)).xyz);
+  sphere_fs_in = interpolatedPoint.xyz;
+
+  // set vertex position to PMV
+  gl_Position = pos_fs_in;
+}
+
+

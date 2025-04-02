@@ -1,0 +1,6 @@
+{
+  "vertex": [ "shaders/version410.glsl","shaders/pass-through.vs"],
+  "tess_control": [ "shaders/version410.glsl","shaders/pass-through.tcs"],
+  "tess_evaluation": [ "shaders/version410.glsl","shaders/interpolate.glsl","shaders/pass-through.tes"],
+  "fragment": [ "shaders/version410.glsl","shaders/pass-through.fs"]
+}

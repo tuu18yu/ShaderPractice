@@ -1,0 +1,6 @@
+{
+  "vertex": [ "shaders/version410.glsl","shaders/PI.glsl","shaders/identity.glsl","shaders/uniform_scale.glsl","shaders/translate.glsl","shaders/rotate_about_y.glsl","shaders/model.glsl","shaders/model_view_projection.vs"],
+  "tess_control": [ "shaders/version410.glsl","shaders/pass-through.tcs"],
+  "tess_evaluation": [ "shaders/version410.glsl","shaders/interpolate.glsl","shaders/pass-through.tes"],
+  "fragment": [ "shaders/version410.glsl","shaders/blue_and_gray.fs"]
+}

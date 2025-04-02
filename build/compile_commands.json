@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/tuu18/Projects/ShaderPractice/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/ShaderPractice.dir/includes_CXX.rsp -g -o CMakeFiles\\ShaderPractice.dir\\src\\main.cpp.obj -c C:\\Users\\tuu18\\Projects\\ShaderPractice\\src\\main.cpp",
+  "file": "C:/Users/tuu18/Projects/ShaderPractice/src/main.cpp",
+  "output": "CMakeFiles/ShaderPractice.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/tuu18/Projects/ShaderPractice/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe  @CMakeFiles/ShaderPractice.dir/includes_C.rsp -g -o CMakeFiles\\ShaderPractice.dir\\src\\glad.c.obj -c C:\\Users\\tuu18\\Projects\\ShaderPractice\\src\\glad.c",
+  "file": "C:/Users/tuu18/Projects/ShaderPractice/src/glad.c",
+  "output": "CMakeFiles/ShaderPractice.dir/src/glad.c.obj"
+},
+{
+  "directory": "C:/Users/tuu18/Projects/ShaderPractice/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/ShaderPractice.dir/includes_CXX.rsp -g -o CMakeFiles\\ShaderPractice.dir\\src\\Input.cpp.obj -c C:\\Users\\tuu18\\Projects\\ShaderPractice\\src\\Input.cpp",
+  "file": "C:/Users/tuu18/Projects/ShaderPractice/src/Input.cpp",
+  "output": "CMakeFiles/ShaderPractice.dir/src/Input.cpp.obj"
+}
+]

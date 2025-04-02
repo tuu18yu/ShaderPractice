@@ -1,0 +1,3 @@
+C:/Users/tuu18/Projects/ShaderPractice/build/CMakeFiles/ShaderPractice.dir
+C:/Users/tuu18/Projects/ShaderPractice/build/CMakeFiles/edit_cache.dir
+C:/Users/tuu18/Projects/ShaderPractice/build/CMakeFiles/rebuild_cache.dir
