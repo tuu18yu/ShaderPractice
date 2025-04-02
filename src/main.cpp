@@ -14,7 +14,7 @@
 #include "config.h"
 #include "Input.h"
 
-const std::string FILEPATH = "data/test-07.json";
+const std::string FILEPATH = "data/test-08.json";
 
 int WINDOW_WIDTH = 800;
 int WINDOW_HEIGHT = 600;

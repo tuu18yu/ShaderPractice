@@ -26,17 +26,24 @@ float bump_height( bool isMoon, vec3 s)
     return noise * 1.8;
   }
 
-  // --- Earth: continent-style bump ---
+ // Earth: continents and ocean depth
 
-  // Low-frequency base defines land vs ocean shape
-  float base = improved_perlin_noise(s * 2.0); // wide, slow continents
-  base = smoothstep(0.05, 0.2, base); // sharpen land/ocean boundary
+  // Low-frequency noise defines land/ocean regions
+  float base = improved_perlin_noise(s * 2.0); // shape of continents
+  float landMask = smoothstep(0.05, 0.2, base); // 0 = ocean, 1 = land
 
-  // Add mid-frequency noise for terrain variation
+  // Mid/high-frequency noise for bumpy terrain
   float detail1 = improved_perlin_noise(s * 8.0) * 0.05;
   float detail2 = improved_perlin_noise(s * 16.0) * 0.02;
 
-  float height = base * (0.05 + detail1 + detail2); // bump only land
+  // Land: positive bump
+  float landHeight = landMask * (0.05 + detail1 + detail2);
 
-  return clamp(height, 0.0, 0.12); // ocean stays at 0
+  // Ocean: dip below 0 using inverted noise
+  float oceanDepth = (1.0 - landMask) * (-0.05 - 0.02 * improved_perlin_noise(s * 6.0));
+
+  // Combine
+  float height = landHeight + oceanDepth;
+
+  return clamp(height, -0.2, 0.2);
 }
